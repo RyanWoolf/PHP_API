@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+// 컨트롤러를 사용할때는 어레이를 넣고 컨트롤러와 함수를 넣어준다.
+Route::get('/products', [ProductsController::class, 'index']);
+Route::get('/products/about', [ProductsController::class, 'about']);
+
+// //새로운 방법
+// Route::get('/products', 'App\Http\Controllers\ProductsController@index');
+
+// //레거시 방법
+// Route::get('/products', 'ProductsController@index');
+
+
 
 // Route to users - string
 Route::get('/users', function () {
