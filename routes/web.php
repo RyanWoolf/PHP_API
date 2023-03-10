@@ -23,6 +23,10 @@ Route::get('/', function () {
 Route::get('/products', [ProductsController::class, 'index']);
 Route::get('/products/about', [ProductsController::class, 'about']);
 
+//URI 사용하기
+Route::get('/products/{name}', [ProductsController::class, 'show']);
+
+
 // //새로운 방법
 // Route::get('/products', 'App\Http\Controllers\ProductsController@index');
 
