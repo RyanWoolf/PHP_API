@@ -16,6 +16,11 @@
     </p>
     
   @endforeach --}}
-  <p>{{ $products }}</p>
+  <p>{{ 'Hey' ?? $products }}</p>
+  <a href="{{ route('products') }}">Products</a>
 </body>
 </html>
+
+@if ()
+    
+@endif

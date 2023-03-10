@@ -8,6 +8,8 @@ class ProductsController extends Controller
 {
     //
     public function index() {
+
+
         $title = "Welcome to my Laravel course";
         $description = "Created by Ryan";
 
@@ -25,10 +27,11 @@ class ProductsController extends Controller
         // return view('products.index')->with('data', $data);
 
         //Directly in the view
-        return view('products.index', [
-            'data' => $data,
-            
-        ]);
+        // return view('products.index', [
+        //     'data' => $data, 
+        // ]);
+        print_r(route('products'));
+        return view('products.index');
     }
 
     public function about() {

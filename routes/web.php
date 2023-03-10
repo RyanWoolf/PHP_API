@@ -19,12 +19,23 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Route::get('/', [PagesController::class, 'index']);
+
 // 컨트롤러를 사용할때는 어레이를 넣고 컨트롤러와 함수를 넣어준다.
 Route::get('/products', [ProductsController::class, 'index']);
+Route::get('/products', [ProductsController::class, 'index'])->name('products');
 Route::get('/products/about', [ProductsController::class, 'about']);
 
+
+
 //URI 사용하기
-Route::get('/products/{name}', [ProductsController::class, 'show']);
+Route::get('/products/{name}', [ProductsController::class, 'show'])->where('name', '[a-zA-Z]+');
+Route::get('/products/{name}/{id}', [ProductsController::class, 'show'])->where([
+    'name' => '[a-z]+',
+    'id' => '[0-9]+'
+]);
+
+Route::get('/products/{id}', [ProductsController::class, 'show'])->where('id', '[0-9]+');
 
 
 // //새로운 방법
