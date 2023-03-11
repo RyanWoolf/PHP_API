@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\ProductsController;
+use App\http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use App\http\Controllers\ProductsController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 // Route that redirects to a view page
 Route::get('/', function () {
@@ -69,3 +71,8 @@ Route::get('/users', function () {
 Route::get('/users', function () {
     return redirect('/');
 });
+
+
+// Posts endpoints
+
+Route::get('/posts', [PostsController::class, 'index']);
